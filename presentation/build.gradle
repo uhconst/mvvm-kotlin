@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
@@ -8,8 +8,6 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        applicationId = rootProject.ext.applicationId
-
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.versionCode
@@ -29,32 +27,16 @@ android {
 
     buildTypes {
         release {
-            debuggable true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "API_URL", "\"http://localhost:8000/\""
-        }
-
-        debug {
-            debuggable false
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "API_URL", "\"http://localhost:8000/\""
-        }
-    }
-
-    testOptions {
-        unitTests {
-            includeAndroidResources = true
         }
     }
 
 }
 
-
 dependencies {
-    def dependencies = rootProject.ext.appDependencies
-    def testDependencies = rootProject.ext.appTestDependencies
+    def dependencies = rootProject.ext.presentationDependencies
+    def testDependencies = rootProject.ext.presentationTestDependencies
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -67,20 +49,11 @@ dependencies {
 
     implementation dependencies.archLifecyle
 
-    implementation dependencies.room
-    implementation dependencies.rxRoom
-    kapt dependencies.roomCompiler
-
     implementation dependencies.koin
     implementation dependencies.koinViewModel
 
     implementation dependencies.rxKotlin
     implementation dependencies.rxAndroid
-
-    implementation dependencies.retrofit
-    implementation dependencies.retrofitGsonConverter
-    implementation dependencies.retrofitRxJava2Adapter
-    implementation dependencies.retrofitLog
 
     testImplementation testDependencies.junit
     androidTestImplementation testDependencies.runner
@@ -88,13 +61,11 @@ dependencies {
 
     testImplementation testDependencies.mockitoKotlin
 
-    testImplementation testDependencies.archCore
-
     testImplementation testDependencies.koin
+
+    testImplementation testDependencies.archCore
 
     testImplementation testDependencies.robolectric
 
-    implementation project(':presentation')
-    implementation project(':data')
     implementation project(':domain')
 }

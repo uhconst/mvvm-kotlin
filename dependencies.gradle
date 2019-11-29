@@ -18,7 +18,7 @@ ext {
     archLifecycleVersion = "2.1.0"
     archRoomVersion = "2.2.2"
     constraintVersion = "2.0.0-alpha3"
-    koinVersion = "2.0.1"
+    koinVersion = "2.0.0"
     rxAndroidVersion = "2.1.1"
     rxKotlinVersion = "2.3.0"
     retrofitVersion = "2.5.0"

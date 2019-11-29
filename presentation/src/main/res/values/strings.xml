@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">presentation</string>
+
+    <string name="btn_fetch_data">Fetch</string>
 </resources>

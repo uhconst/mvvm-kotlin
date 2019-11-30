@@ -2,4 +2,6 @@
     <string name="app_name">presentation</string>
 
     <string name="btn_fetch_data">Fetch</string>
+    <string name="response_code">Response Code:</string>
+    <string name="times_fetched">Times Fetched:</string>
 </resources>

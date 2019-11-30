@@ -15,5 +15,7 @@ class CodeActivity : BaseActivity<ActivityCodeBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
+
+        viewModel.loadPath()
     }
 }

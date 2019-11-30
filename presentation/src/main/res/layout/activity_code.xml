@@ -9,60 +9,81 @@
             type="com.constancio.presentation.code.CodeViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/responseCodeLabel"
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/response_code"
-            app:layout_constraintEnd_toStartOf="@id/responseCode"
+            android:visibility="@{vm.showLoading}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/responseCode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@{vm.code.responseCode}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/responseCodeLabel"
-            app:layout_constraintTop_toTopOf="@id/responseCodeLabel"
-            tools:text="XXXX-XXXX" />
-
-        <TextView
-            android:id="@+id/timesFetchedLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/times_fetched"
-            app:layout_constraintEnd_toEndOf="@id/responseCodeLabel"
-            app:layout_constraintTop_toBottomOf="@id/responseCodeLabel" />
-
-        <TextView
-            android:id="@+id/timesFetched"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@{vm.timesFetched.toString()}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/timesFetchedLabel"
-            app:layout_constraintTop_toTopOf="@id/timesFetchedLabel"
-            tools:text="0" />
-
-        <Button
-            android:id="@+id/fetchCode"
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClickListener="@{() -> vm.onClickFetchCode()}"
-            android:text="@string/btn_fetch_data"
+            android:layout_height="match_parent"
+            android:visibility="@{!vm.showLoading}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
+            <TextView
+                android:id="@+id/responseCodeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/response_code"
+                app:layout_constraintEnd_toStartOf="@id/responseCode"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/responseCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{vm.code.responseCode}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/responseCodeLabel"
+                app:layout_constraintTop_toTopOf="@id/responseCodeLabel"
+                tools:text="XXXX-XXXX" />
+
+            <TextView
+                android:id="@+id/timesFetchedLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/times_fetched"
+                app:layout_constraintEnd_toEndOf="@id/responseCodeLabel"
+                app:layout_constraintTop_toBottomOf="@id/responseCodeLabel" />
+
+            <TextView
+                android:id="@+id/timesFetched"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{vm.timesFetched.toString()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/timesFetchedLabel"
+                app:layout_constraintTop_toTopOf="@id/timesFetchedLabel"
+                tools:text="0" />
+
+            <Button
+                android:id="@+id/fetchCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClickListener="@{() -> vm.onClickFetchCode()}"
+                android:text="@string/btn_fetch_data"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

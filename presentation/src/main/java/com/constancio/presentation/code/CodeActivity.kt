@@ -15,7 +15,13 @@ class CodeActivity : BaseActivity<ActivityCodeBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
+    }
 
+    /**
+     * Load path every time on resume is called
+     */
+    override fun onResume() {
+        super.onResume()
         viewModel.loadPath()
     }
 }

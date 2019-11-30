@@ -7,6 +7,7 @@ dependencies {
     implementation dependencies.kotlin
 
     implementation dependencies.rxKotlin
+    implementation dependencies.rxAndroid
 
     testImplementation testDependencies.junit
     testImplementation testDependencies.mockitoKotlin

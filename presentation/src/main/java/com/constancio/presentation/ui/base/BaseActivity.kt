@@ -22,7 +22,11 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = DataBindingUtil.setContentView(this, getLayoutRes())
+
+        /** Enable MutableLiveData to be updated on the UI */
+        binding.lifecycleOwner = this
     }
 
     /** The final call you receive before your activity is destroyed. */

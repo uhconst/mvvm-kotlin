@@ -18,7 +18,11 @@ interface CodeDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertResponseCode(responseCodeEntity: ResponseCodeEntity)
 
-    /** Return a single [PathEntity] ordering by id to fetch the last one]. */
+    /** Return a single [PathEntity] ordering by id to fetch the last one. */
     @Query("SELECT * FROM path ORDER BY id DESC LIMIT 1")
     fun getNextPath(): Single<PathEntity>
+
+    /** Return a single [Int] counting all the response code. */
+    @Query("SELECT COUNT(id) FROM response_code")
+    fun getTimesFetchedQuantity(): Single<Int>
 }

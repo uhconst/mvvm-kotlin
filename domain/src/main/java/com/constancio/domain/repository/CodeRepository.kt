@@ -8,4 +8,6 @@ interface CodeRepository {
     fun getNextPath(): Completable
 
     fun getResponseCode(): Single<Code>
+
+    fun getTimesFetched(): Single<Int>
 }

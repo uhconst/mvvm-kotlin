@@ -57,7 +57,14 @@ class CodeRepositoryImpl(
             }
 
     /**
-     * Extension function to convert `NextPath` to `PathEntity`
+     * Get from DB how many times the response code was fetched.
+     */
+    override fun getTimesFetched(): Single<Int> =
+        dao.getTimesFetchedQuantity()
+            .subscribeOn(Schedulers.io())
+
+    /**
+     * Extension function to convert [NextPath] to [PathEntity]
      */
     private fun NextPath.toPathEntity() = PathEntity(
         id = null,
@@ -65,7 +72,7 @@ class CodeRepositoryImpl(
     )
 
     /**
-     * Extension function to convert `Code` to `ResponseCodeEntity`
+     * Extension function to convert [Code] to [ResponseCodeEntity]
      */
     private fun Code.toResponseCodeEntity() = ResponseCodeEntity(
         id = null,

@@ -13,4 +13,7 @@ class CodeUseCase(
 
     fun getResponseCode(): Single<Code> =
         codeRepository.getResponseCode()
+
+    fun getTimesFetched(): Single<Int> =
+        codeRepository.getTimesFetched()
 }

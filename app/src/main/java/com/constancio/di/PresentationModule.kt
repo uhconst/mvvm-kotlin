@@ -7,8 +7,5 @@ import org.koin.dsl.module
 val presentationModule = module {
 
     /** Code View Model */
-    viewModel { CodeViewModel() }
-
-// todo:
-
+    viewModel { CodeViewModel(get()) }
 }

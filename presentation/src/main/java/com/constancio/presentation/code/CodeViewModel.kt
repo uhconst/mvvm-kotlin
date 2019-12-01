@@ -26,7 +26,7 @@ class CodeViewModel(
                 .doOnSubscribe { showLoading.set(true) }
                 .doFinally { showLoading.set(false) },
             complete = {
-                countTimesFetched()
+                // success Log info
             },
             error = { error.postValue(it) }
         )

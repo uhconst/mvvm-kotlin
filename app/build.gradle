@@ -83,16 +83,16 @@ dependencies {
     implementation dependencies.retrofitLog
 
     testImplementation testDependencies.junit
-    androidTestImplementation testDependencies.runner
-    androidTestImplementation testDependencies.espresso
-
     testImplementation testDependencies.mockitoKotlin
-
     testImplementation testDependencies.archCore
-
     testImplementation testDependencies.koin
-
     testImplementation testDependencies.robolectric
+
+    androidTestImplementation testDependencies.espresso
+    androidTestImplementation testDependencies.junitExt
+    androidTestImplementation testDependencies.koin
+    androidTestImplementation testDependencies.runner
+
 
     implementation project(':presentation')
     implementation project(':data')

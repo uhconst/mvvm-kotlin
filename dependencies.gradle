@@ -29,8 +29,9 @@ ext {
     archCoreTestingVersion = "2.1.0"
     espressoVersion = "3.1.0"
     junitVersion = "4.12"
+    junitExtVersion = "1.1.1"
     mockitoKotlinVersion = "2.1.0"
-    robolectricVersion = "4.1"
+    robolectricVersion = "4.3.1"
     runnerVersion = "1.1.0"
 
     appDependencies = [
@@ -55,6 +56,7 @@ ext {
 
     appTestDependencies = [
             junit        : "junit:junit:$junitVersion",
+            junitExt     : "androidx.test.ext:junit:$junitExtVersion",
             runner       : "androidx.test:runner:$runnerVersion",
             espresso     : "androidx.test.espresso:espresso-core:$espressoVersion",
             mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",

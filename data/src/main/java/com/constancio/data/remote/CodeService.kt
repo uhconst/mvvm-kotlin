@@ -31,7 +31,7 @@ interface CodeService {
     fun getCode(@Path("nextPath") path: String): Single<CodeDto.CodeResponse>
 
     companion object {
-        fun createMovieService(
+        fun createCodeService(
             baseUrl: String,
             requestInterceptor: RemoteRequestInterceptor,
             rxRemoteErrorInterceptor: RxRemoteErrorInterceptor

@@ -24,7 +24,7 @@ val dataModule = module {
     single { get<AppDatabase>().codeDao() }
 
     single {
-        CodeService.createMovieService(
+        CodeService.createCodeService(
             BuildConfig.API_URL,
             get(),
             get()

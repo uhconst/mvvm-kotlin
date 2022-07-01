@@ -31,7 +31,7 @@ class CodeActivity : BaseActivity<ActivityCodeBinding>() {
     }
 
     /**
-     * Observe error and display a Toast
+     * Observe error and display a Toast.
      */
     private fun observeData() {
         viewModel.error.observeNotNull(this) {

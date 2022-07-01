@@ -8,6 +8,7 @@ import com.constancio.presentation.ui.base.BaseActivity
 import com.constancio.presentation.ui.extensions.observeNotNull
 import org.koin.android.viewmodel.ext.android.viewModel
 
+//test
 class CodeActivity : BaseActivity<ActivityCodeBinding>() {
 
     val viewModel by viewModel<CodeViewModel>()
